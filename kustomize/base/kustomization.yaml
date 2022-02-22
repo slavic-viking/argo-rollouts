@@ -4,5 +4,7 @@ resources:
   - namespace.yaml
   - https://github.com/argoproj/argo-rollouts/releases/download/v1.1.1/install.yaml
 namespace: argo-rollouts
-patchesStrategicMerge:
- - metrics.yaml
+commonAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/path: /metrics
+  prometheus.io/port: "8090"
